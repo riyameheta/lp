@@ -89,6 +89,7 @@ int main() {
     int start, goal; // Variables to store start and goal nodes
     cout << "Enter the start node and the goal node: ";
     cin >> start >> goal; // Read start and goal nodes from user input
+    
 
     // Call A* algorithm to find shortest path
     vector<int> path = astar(graph, start, goal, heuristic);
