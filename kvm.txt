@@ -1,0 +1,21 @@
+# Update package lists
+sudo apt update
+
+# Check if CPU supports virtualization
+egrep -c '(vmx|svm)' /proc/cpuinfo
+
+# Install CPU checker tool
+sudo apt-get install cpu-checker
+
+# Install KVM and related packages
+sudo apt install -y qemu-kvm virt-manager libvirt-daemon-system virtinst libvirt-clients bridge-utils
+
+# Enable and start libvirtd service
+sudo systemctl enable --now libvirtd
+
+# Check status of libvirtd service
+sudo systemctl status libvirtd
+
+# Add the current user to necessary groups (libvirt and kvm)
+sudo usermod -aG libvirt $(whoami)
+sudo usermod -aG kvm $(whoami)
