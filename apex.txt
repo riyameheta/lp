@@ -1,0 +1,83 @@
+public class linearS {
+    public static void findTarget()
+    {
+        List<Integer> intList = new List<Integer>{1, 5, 0, 10, 13, 2, 8};
+        Integer target = 2;
+
+        for(Integer i = 0; i < intList.size(); i++) {
+            if(intList[i] == target) {
+                System.debug('Target Found at Index ' + i);
+                return;
+            }
+        }
+        // If the target is not found
+        System.debug('Target not found in the list.');
+    }
+}
+
+public class BinarySearch {
+    public static Integer binarySearch(List<Integer> arr, Integer target) {
+        Integer left = 0;
+        Integer right = arr.size() - 1;
+
+        while (left <= right) {
+            Integer mid = left + (right - left) / 2;
+            if (arr[mid] == target) {
+                return mid;
+            } else if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return -1; // Target not found
+    }
+}
+
+
+
+public class Calculator {
+    public static void main(){
+        Integer num1 = 5;
+        Integer num2 = 3;
+
+        // Perform arithmetic operations
+        Decimal additionResult = add(num1, num2);
+        Decimal subtractionResult = subtract(num1, num2);
+        Decimal multiplicationResult = multiply(num1, num2);
+        Decimal divisionResult = divide(num1, num2);
+
+        // Print results
+        System.debug('Addition: ' + additionResult);
+        System.debug('Subtraction: ' + subtractionResult);
+        System.debug('Multiplication: ' + multiplicationResult);
+        System.debug('Division: ' + divisionResult);
+    }
+
+    public static Decimal add(Integer num1, Integer num2) {
+        return Decimal.valueOf(num1) + Decimal.valueOf(num2);
+    }
+
+    public static Decimal subtract(Integer num1, Integer num2) {
+        return Decimal.valueOf(num1) - Decimal.valueOf(num2);
+    }
+
+    public static Decimal multiply(Integer num1, Integer num2) {
+        return Decimal.valueOf(num1) * Decimal.valueOf(num2);
+    }
+
+    public static Decimal divide(Integer num1, Integer num2) {
+        if (num2 == 0) {
+            // Handle division by zero error
+            System.debug('Error: Division by zero');
+            return 0;
+        }
+        return Decimal.valueOf(num1) / Decimal.valueOf(num2);
+    }
+}
+
+
+
+
+
