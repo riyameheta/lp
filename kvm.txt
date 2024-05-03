@@ -19,3 +19,7 @@ sudo systemctl status libvirtd
 # Add the current user to necessary groups (libvirt and kvm)
 sudo usermod -aG libvirt $(whoami)
 sudo usermod -aG kvm $(whoami)
+
+
+#config
+sudo virt-manager
